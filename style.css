@@ -48,11 +48,13 @@ html, body {
 }
 
 .header {
-    position: relative;
+    position: sticky;
+    top: 0;
     height: 2.5em;
     width: 100%;
     display: flex;
     padding: 5px;
+    z-index: 10;
     justify-content: space-between;
 }
 
@@ -65,6 +67,7 @@ html, body {
 .menu-toggle .menu-icon {
     cursor: pointer;
     display: inline-block;
+    z-index: 2;
     padding: 24px 10px;
     position: relative;
     user-select: none;
@@ -128,6 +131,53 @@ html, body {
     clear: both;
     max-height: 0;
     transition: max-height .2s ease-out;
+}
+
+.menu {
+    position: fixed;
+    top: 0;
+    width: 40%;
+    right: 0;
+    z-index: 1;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: top;
+    text-align: center;
+    padding: 60px 20px 60px 0;
+    background: transparent;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    transition: 0.2s ease-in;
+    transition-delay: 0.2s;
+    display: none;
+    animation: entry .5s ease;
+}
+
+.menu-li {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.menu-li li {
+    list-style-type: none;
+    text-transform: uppercase;
+
+}
+
+@keyframes entry {
+    0% {
+        transform: translateX(100%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.show-menu {
+    display: flex;
 }
 
 .banner {
